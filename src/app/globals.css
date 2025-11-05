@@ -3,7 +3,75 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+   --font-primary: 'Guminert-New';
+  
 }
+
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Thin Oblique.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Light Oblique.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Book Oblique.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Bold Oblique.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Kamerik205';
+  src: url('/fonts/Kamerik 205 Heavy Oblique.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -14,13 +82,37 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* --background: #0a0a0a; */
+    /* --foreground: #ededed; */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: 'Guminert-New', sans-serif !important; */
+  font-family: 'Kamerik205', sans-serif;
 }
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-slide {
+  animation: slide 20s linear infinite;
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
