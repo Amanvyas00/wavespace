@@ -3,75 +3,73 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-   --font-primary: 'Guminert-New';
-  
+  --font-primary: "Guminert-New";
 }
 
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Thin.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Thin.ttf") format("truetype");
   font-weight: 100;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Thin Oblique.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Thin Oblique.ttf") format("truetype");
   font-weight: 100;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Light.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Light Oblique.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Light Oblique.ttf") format("truetype");
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Book.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Book.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Book Oblique.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Book Oblique.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Bold.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Bold Oblique.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Bold Oblique.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
 }
 
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Heavy.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Heavy.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Kamerik205';
-  src: url('/fonts/Kamerik 205 Heavy Oblique.ttf') format('truetype');
+  font-family: "Kamerik205";
+  src: url("/fonts/Kamerik 205 Heavy Oblique.ttf") format("truetype");
   font-weight: 900;
   font-style: italic;
 }
-
 
 @theme inline {
   --color-background: var(--background);
@@ -91,11 +89,15 @@ body {
   background: var(--background);
   color: var(--foreground);
   /* font-family: 'Guminert-New', sans-serif !important; */
-  font-family: 'Kamerik205', sans-serif;
+  font-family: "Kamerik205", sans-serif;
 }
 @keyframes slide {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-slide {
@@ -116,3 +118,49 @@ body {
   animation: slideUp 0.5s ease-out;
 }
 
+/* in the imageSlider */
+/* Hide scrollbar but keep scroll */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* benefits-style image adjustments */
+.benefits-img {
+  width: 100%;
+  max-width: 26.125rem;
+  object-fit: cover;
+}
+@media screen and (max-width: 991px) {
+  .benefits-img {
+    max-width: 15.625rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .benefits-img {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+/* animation of the about section image slider */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 10s linear infinite;
+}
+
+/* Optional: pause on hover */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
