@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  /* --background: #ffffff; */
+  --background: #f9fafb;
   --foreground: #171717;
   --font-primary: "Guminert-New";
 }
@@ -162,5 +163,10 @@ body {
 
 /* Optional: pause on hover */
 .animate-marquee:hover {
-  animation-play-state: paused;
+  animation-play-state: play;
+}
+.service_card {
+  position: sticky;
+  top: 0;
+  transform-style: preserve-3d;
 }

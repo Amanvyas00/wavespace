@@ -58,7 +58,7 @@ export default function CreativeServicesSection() {
                 key={i}
                 onMouseEnter={() => setHovered(`left-${i}`)}
                 onMouseLeave={() => setHovered(null)}
-                className="relative group flex justify-between items-center px-10 py-10 border-b border-gray-200 hover:bg-gray-50 transition-all duration-300 overflow-visible"
+                className="relative group flex justify-between items-center px-10 py-8 border-b border-gray-200 hover:bg-gray-50 transition-all duration-300 overflow-visible"
               >
                 <div className="flex items-center gap-4 z-10">
                   <span className="text-gray-400 text-sm w-8">
@@ -105,7 +105,7 @@ export default function CreativeServicesSection() {
                 key={i}
                 onMouseEnter={() => setHovered(`right-${i}`)}
                 onMouseLeave={() => setHovered(null)}
-                className="relative group flex justify-between items-center px-10 py-10 border-b border-gray-200 hover:bg-gray-50 transition-all duration-300 overflow-visible"
+                className="relative group flex justify-between items-center px-10 py-8 border-b border-gray-200 hover:bg-gray-50 transition-all duration-300 overflow-visible"
               >
                 <div className="flex items-center gap-4 z-10">
                   <span className="text-gray-400 text-sm w-8">

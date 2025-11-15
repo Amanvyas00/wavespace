@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   Monitor,
@@ -12,32 +12,64 @@ import {
   Search,
   Zap,
 } from "lucide-react";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScroll, setLastScroll] = useState(0);
+   const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll > lastScroll) {
+        // scrolling down → hide navbar
+        setShowNavbar(false);
+      } else {
+        // scrolling up → show navbar
+        setShowNavbar(true);
+      }
+
+      setLastScroll(currentScroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScroll]);
 
   return (
-    <nav className="w-full bg-white border-b border-gray-200 relative z-50">
-      <div className="container mx-auto flex justify-between items-center px-10 py-4">
+    <nav
+      className={`
+    w-full bg-white fixed top-0 left-0 z-50 transition-transform duration-300
+    ${showNavbar ? "translate-y-0" : "-translate-y-full"}
+  `}
+    >
+      <div className="container mx-auto flex justify-between items-center px-20 py-4">
         {/* Logo */}
         <Link
-        href="/"
-         className="text-2xl font-semibold tracking-tight text-gray-900">
+          href="/"
+          className="text-2xl font-semibold tracking-tight text-gray-900"
+        >
           <span className="font-bold">wave</span>space
         </Link>
 
         {/* Menu */}
         <Link
-        href="/service"
-        className="hidden md:flex space-x-8 text-black text-lg relative font-medium">
+          href="/service"
+          className="hidden md:flex space-x-8 text-black text-lg relative font-medium"
+        >
           {/* Services Menu */}
           <div
             className="relative"
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
-            <button className="relative hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full">
-              Services <span className="text-sm">↗</span>
+            <button className="relative flex items-center gap-2 hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full">
+              <span>Services</span>
+              <MdOutlineArrowOutward className="text-[16px] " />
             </button>
 
             {/* Mega Menu */}
@@ -139,9 +171,10 @@ export default function Navbar() {
         {/* Contact Button */}
         <Link
           href="#"
-          className="bg-indigo-600 text-white font-medium rounded-full px-6 py-2 hover:bg-indigo-700 transition-all flex items-center gap-2"
+          className="bg-[#3F2FEE] text-white text-[15px] font-bold rounded-full px-7 py-4 hover:bg-indigo-700 transition-all flex flex-row justify-center items-center gap-2 "
         >
-          Contact Us <span className="text-sm">↗</span>
+          <span>Contact Us</span>
+          <MdOutlineArrowOutward className="text-[20px]" />
         </Link>
       </div>
     </nav>

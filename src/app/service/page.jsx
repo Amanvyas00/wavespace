@@ -17,19 +17,27 @@ export default function page() {
       title: "For startups",
       icon: "🚀",
       desc: "We assist early-stage teams in turning their ideas into MVPs more quickly. Get actual user input, win over investors, and release your app stress-free.",
-      points: ["Launch MVPs fast", "Validate with users", "Build investor decks"]
+      points: [
+        "Launch MVPs fast",
+        "Validate with users",
+        "Build investor decks",
+      ],
     },
     {
       title: "For Product Teams",
       icon: "</>",
       desc: "We become a part of your internal process, handling the main tasks for you. Rely on us for UX support, design systems, and an easy transition of your project.",
-      points: ["Full-cycle UX/UI", "Design systems", "Cross-platform support"]
+      points: ["Full-cycle UX/UI", "Design systems", "Cross-platform support"],
     },
     {
       title: "For Founders",
       icon: "🖥️",
       desc: "Design that helps you reach your targets. We care about how things work and how they help, using hard information, not guesswork.",
-      points: ["Growth-focused UX", "Landing page design", "A/B testing assets"]
+      points: [
+        "Growth-focused UX",
+        "Landing page design",
+        "A/B testing assets",
+      ],
     },
   ];
   const features = [
@@ -39,7 +47,6 @@ export default function page() {
     "Know if we're the right fit before you commit",
   ];
 
-  
   return (
     <>
       <section className="bg-[#010852] text-white w-full px-10 md:px-20 relative overflow-hidden">
@@ -313,99 +320,94 @@ export default function page() {
       </section>
 
       <section className="w-full bg-[#f3f3f3] py-24">
-      <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
+          {/* TOP HEADING + BUTTON */}
+          <div className="flex flex-col md:flex-row justify-between md:items-center mb-16">
+            <div>
+              <h2 className="text-5xl font-bold text-gray-900 leading-tight">
+                Who we design for and how
+              </h2>
+              <h2 className="text-5xl font-bold text-gray-400 leading-tight">
+                we support them
+              </h2>
+            </div>
 
-        {/* TOP HEADING + BUTTON */}
-        <div className="flex flex-col md:flex-row justify-between md:items-center mb-16">
-          <div>
-            <h2 className="text-5xl font-bold text-gray-900 leading-tight">
-              Who we design for and how
-            </h2>
-            <h2 className="text-5xl font-bold text-gray-400 leading-tight">
-              we support them
-            </h2>
+            <button className="mt-6 md:mt-0 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg transition">
+              Start your project ↗
+            </button>
           </div>
 
-          <button className="mt-6 md:mt-0 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg transition">
-            Start your project ↗
-          </button>
+          {/* 3 CARD GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {cards.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-10 rounded-xl shadow-sm border border-gray-200"
+              >
+                {/* Icon */}
+                <div className="text-4xl mb-4">{item.icon}</div>
+
+                {/* Title */}
+                <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
+
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  {item.desc}
+                </p>
+
+                {/* Bullet Points */}
+                <ul className="space-y-3 text-gray-800">
+                  {item.points.map((p, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span>•</span> {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
-
-        {/* 3 CARD GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {cards.map((item, index) => (
-            <div 
-              key={index} 
-              className="bg-white p-10 rounded-xl shadow-sm border border-gray-200"
-            >
-              {/* Icon */}
-              <div className="text-4xl mb-4">{item.icon}</div>
-
-              {/* Title */}
-              <h3 className="text-2xl font-semibold mb-4">
-                {item.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600 leading-relaxed mb-6">
-                {item.desc}
-              </p>
-
-              {/* Bullet Points */}
-              <ul className="space-y-3 text-gray-800">
-                {item.points.map((p, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <span>•</span> {p}
-                  </li>
-                ))}
-              </ul>
+      </section>
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-[#02004A] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-3 py-1.5 rounded-full border border-white/20 text-xs mb-6">
+              <span className="text-yellow-400 text-base">🔥</span>
+              Only 4 seats per month
             </div>
-          ))}
+
+            <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-2">
+              Test our product & UI UX design expertise.
+            </h2>
+
+            <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-6">
+              Start a one-week trial for{" "}
+              <span className="text-yellow-300">$500</span>
+            </h2>
+
+            <p className="text-base text-white/80 mb-4">
+              …and get the answers on:
+            </p>
+
+            {/* Pills */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              {features.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full text-sm"
+                >
+                  <span className="text-green-300">✔</span>
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <button className="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-8 py-3 rounded-full text-base transition">
+              Start the trial week ↗
+            </button>
+          </div>
         </div>
-
-      </div>
-    </section>
-    <section className="w-full py-20">
-      <div className="max-w-7xl mx-auto px-6">
-
-       <div className="bg-[#02004A] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
-
-  <div className="inline-flex items-center gap-2 bg-white/10 text-white px-3 py-1.5 rounded-full border border-white/20 text-xs mb-6">
-    <span className="text-yellow-400 text-base">🔥</span>
-    Only 4 seats per month
-  </div>
-
-  <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-2">
-    Test our product & UI UX design expertise.
-  </h2>
-
-  <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-6">
-    Start a one-week trial for <span className="text-yellow-300">$500</span>
-  </h2>
-
-  <p className="text-base text-white/80 mb-4">…and get the answers on:</p>
-
-  {/* Pills */}
-  <div className="flex flex-wrap gap-3 mb-8">
-    {features.map((item, index) => (
-      <div
-        key={index}
-        className="flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full text-sm"
-      >
-        <span className="text-green-300">✔</span>
-        {item}
-      </div>
-    ))}
-  </div>
-
-  <button className="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-8 py-3 rounded-full text-base transition">
-    Start the trial week ↗
-  </button>
-
-</div>
-
-      </div>
-    </section>
+      </section>
     </>
   );
 }

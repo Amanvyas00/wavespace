@@ -38,9 +38,6 @@ export default function OurMembership() {
 
   return (
     <section className="bg-gray-100 py-20">
-      {/* ==============================
-          OUTERMOST CONTAINER
-      =============================== */}
       <div
         className="
           flex flex-col w-full max-w-[1440px] mx-auto
@@ -49,9 +46,6 @@ export default function OurMembership() {
           sm:px-[0.9rem]
         "
       >
-        {/* ==============================
-            HEADER
-        =============================== */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <h2 className="text-4xl md:text-6xl font-bold leading-tight text-gray-900">
             Our membership <br />
@@ -63,9 +57,6 @@ export default function OurMembership() {
           </button>
         </div>
 
-        {/* ==============================
-            GRID OF BENEFITS
-        =============================== */}
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
           {/* Map through benefits */}
           {benefits.map((benefit, index) => (
@@ -73,7 +64,7 @@ export default function OurMembership() {
               key={index}
               className={`
                 bg-white shadow-sm hover:shadow-md transition relative flex flex-col justify-between
-                rounded-[1rem]
+                rounded-lg  
                 ${
                   benefit.type === "_01"
                     ? "p-[2rem_1.5rem_0.9375rem_2rem] md:flex md:items-center md:justify-between md:gap-[1.25rem] md:p-[2.5rem_1.875rem] sm:flex-col sm:rounded-[0.5rem]"
@@ -109,7 +100,7 @@ export default function OurMembership() {
               </div>
 
               {/* VIDEO */}
-              <div className="relative w-full h-[300px] mt-8 overflow-hidden rounded-2xl">
+              <div className="relative w-full h-[250px] mt-8 overflow-hidden rounded-2xl">
                 <video
                   src={benefit.video}
                   autoPlay
@@ -123,9 +114,6 @@ export default function OurMembership() {
           ))}
         </div>
 
-        {/* ==============================
-            TESTIMONIAL SECTION
-        =============================== */}
         <div
           className="
             bg-white rounded-[1rem] shadow-sm

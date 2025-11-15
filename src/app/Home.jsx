@@ -11,6 +11,9 @@ import Founders from "@/component/Founders";
 import Achievements from "@/component/Achievements";
 import { Mail, Phone } from "lucide-react";
 import Slider from "@/component/Slider";
+import ImageSlider from "@/component/ImageSlider";
+import PersonSlider from "@/component/PersonSlider";
+import Sliderr from "@/component/Sliderr";
 
 // import Form from "../component/Form";
 const page = () => {
@@ -41,7 +44,7 @@ const page = () => {
       title: "fame - Sport Management Web App",
       des: "App Design, SaaS Design, UI/UX Design",
     },
-     {
+    {
       img: "/images/poster5.webp",
       title: "Off-White - Modern fashion web design",
       des: "App Design, SaaS Design, UI/UX Design",
@@ -145,16 +148,16 @@ const page = () => {
   }, []);
   return (
     <>
-      <div>
-        <section className="w-full flex items-center justify-between px-10 lg:px-28 py-20">
+      <div className="mt-20">
+        <section className=" w-full flex items-center justify-between px-10 lg:px-20 py-20">
           {/* Left */}
-          <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 bg-[#e9ffe7] px-4 py-1 rounded-full text-sm font-medium">
+          <div className="max-w-4xl space-y-2 ">
+            <div className="inline-flex items-center border border-gray-100 gap-2 px-3 py-1 rounded-full text-[12px] font-medium">
               <span className="h-3 w-3 bg-[#adff3e] rounded-full"></span>
               Available for New Projects
             </div>
 
-            <h1 className="text-5xl lg:text-7xl font-black leading-tight tracking-tight">
+            <h1 className="text-[56px] lg:text-7xl font-[700] leading-tight tracking-tight">
               Global UX design
               <br /> agency digital partner
               <br /> for{" "}
@@ -167,33 +170,76 @@ const page = () => {
             </h1>
 
             <div className="flex items-center gap-6 pt-6">
-              <button className="bg-[#242424] text-white px-9 py-5 rounded-full font-semibold hover:bg-blue-500 transition cursor-pointer duration-300">
+              <button className="bg-[#242424] text-white px-9 py-6 rounded-full font-semibold hover:bg-blue-500 transition cursor-pointer duration-300">
                 Book a call
               </button>
-              <button className="bg-white text-black border border-gray-300 px-9 py-5 rounded-full font-semibold hover:opacity-90 transition duration-300 cursor-pointer"
->
-                View work
+              <button className="bg-white text-gray-700 text-lg border-1 border-gray-300 px-6 py-5 rounded-full font-semibold hover:opacity-90 transition duration-300 cursor-pointer flex items-center gap-3">
+                <img
+                  src="/images/icon/icon1.svg"
+                  alt="icon"
+                  className="w-7 h-7"
+                />
+                <span>View work</span>
               </button>
             </div>
           </div>
 
           {/* Right */}
           <div className="max-w-sm hidden lg:block">
-            <p className="text-xl leading-relaxed text-black-600 font-bold">
+            <p className="text-[18px] leading-relaxed text-black-600 font-[500]">
               Wavespace is a global UX agency that helps brands scale with fast,
               high performance digital experiences.
             </p>
 
-            <div className="flex items-center gap-2 mt-6">
-              <img src="/images/man1.webp" className="h-8 w-8 rounded-full" />
-              <img src="/images/man2.webp" className="h-8 w-8 rounded-full" />
-              <img src="/images/man3.webp" className="h-8 w-8 rounded-full" />
-              <span className="font-semibold">Loved by 500+ Founders</span>
+            <div className="flex flex-wrap items-center justify-between gap-6 mt-6">
+              {/* Loved by Founders */}
+              <div className="flex items-center gap-2">
+                <img
+                  src="/images/man1.webp"
+                  className="h-8 w-8 rounded-full"
+                  alt="Founder 1"
+                />
+                <img
+                  src="/images/man2.webp"
+                  className="h-8 w-8 rounded-full"
+                  alt="Founder 2"
+                />
+                <img
+                  src="/images/man3.webp"
+                  className="h-8 w-8 rounded-full"
+                  alt="Founder 3"
+                />
+                <span className="font-semibold text-gray-800">
+                  Loved by 500+ Founders
+                </span>
+              </div>
+
+              {/* Clutch Reviews */}
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/images/icon/clutch.jpg"
+                  alt="Clutch"
+                  width={42}
+                  height={42}
+                />
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-yellow-500 text-lg">
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-sm font-semibold text-gray-700">
+                    13 REVIEWS
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-        <section className="flex justify-center items-center">
-          <div className="bg-gray-200 h-[750px] w-[1250px] flex justify-center items-center">
+        <section className="flex justify-center bg-gray-50 items-center">
+          <div className="bg-gray-200 h-[750px] w-[1350px] flex justify-center items-center">
             <video
               className="h-full w-full object-cover"
               autoPlay
@@ -209,20 +255,18 @@ const page = () => {
           <Slider2 />
         </section>
 
-        <section className="w-full py-24 bg-gray-100 px-10">
+        <section className="w-full py-24 px-10 bg-gradient-to-b from-white to-gray-200">
           <div className="px-8">
-            <h2 className="text-4xl md:text-6xl font-black mb-12 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-semibold mb-12 leading-tight tracking-[0.01em]">
               Bold UX design, billion-dollar proof. We
               <br />
-              measure impact, <span className="text-gray-500">not just ship pixels.</span>
+              measure impact,{" "}
+              <span className="text-gray-500">not just ship pixels.</span>
             </h2>
             {/* first div */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               {states.slice(0, 3).map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white rounded-xl shadow-sm p-10 text-left"
-                >
+                <div key={i} className="bg-white rounded-xl p-10 text-left">
                   <span className="text-gray-400 text-lg ">{item.id}</span>
                   <h3 className="text-5xl font-semibold mt-6 mb-3 pt-30">
                     {item.title}
@@ -232,7 +276,7 @@ const page = () => {
               ))}
             </div>
             {/* second div */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
               {states.slice(3).map((item, i) => (
                 <div
                   key={i}
@@ -250,28 +294,31 @@ const page = () => {
         </section>
 
         <section className="px-10 py-12">
-          <h1 className="text-4xl font-black leading-tight max-w-2xl px-18">
-            Turn your ideas into <br />
-            <span className="text-gray-500 font-normal">
-              impactful solutions like them!
+          <h1 className="text-6xl font-semibold leading-tight max-w-8xl px-10">
+            Turn your ideas into
+            <span className=" text-6xl text-gray-500 font-semibold">
+              {" "}
+              impactful <br /> solutions like them!
             </span>
           </h1>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-8 px-18">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-3 mt-8 px-8">
             {data.map((read, index) => (
               <div key={index} className="flex flex-col group cursor-pointer">
                 <div className="overflow-hidden ">
                   <Image
                     src={read.img}
                     alt="img"
-                    width={600}
+                    width={1200}
                     height={300}
                     className="duration-300 group-hover:scale-105"
                   />
                 </div>
 
                 <h2 className="text-xl font-semibold mt-4">{read.title}</h2>
-                <p className="text-sm text-gray-500">{read.des}</p>
+                <p className="text-sm text-gray-900 font-medium pb-3">
+                  {read.des}
+                </p>
               </div>
             ))}
           </div>
@@ -288,7 +335,7 @@ const page = () => {
 
           <div className="flex flex-col lg:flex-row px-8 gap-16 mt-16">
             {/* LEFT BOX */}
-             <div className="bg-[#333333] p-10 lg:w-[65%] w-full space-y-6 border border-gray-800">
+            <div className="bg-[#333333] p-10 lg:w-[65%] w-full space-y-6 border border-gray-800">
               <p className="text-white text-2xl font-normal">
                 <span className="text-gray-500 mr-2">01</span>Onboard in 1 day
               </p>
@@ -333,7 +380,7 @@ const page = () => {
               </button>
             </div>
           </div>
-          <div className="px-6 pt-14">
+          <div className="px-6 pt-24">
             <h1 className="text-white text-5xl font-semibold leading-tight">
               From startup to enterprise, grow your business <br />
               <span className="text-[#555555]">
@@ -342,16 +389,19 @@ const page = () => {
             </h1>
           </div>
         </section>
-        <Slider/>
-        <Achievements />
+        <Sliderr />
+
+        
+
+        <PersonSlider />
         <section id="contact" className="py-20 bg-white">
           <FAQSection />
         </section>
 
         <section className="w-full py-14 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-8xl mx-auto px-18">
             <div className="flex justify-between items-start">
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight text-black">
+              <h1 className="text-5xl md:text-7xl font-semibold leading-tight text-[#1B1B1B]">
                 Got a project in mind?
                 <br /> Let's talk.
               </h1>
@@ -364,7 +414,9 @@ const page = () => {
             <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mt-20">
               {/* Bangladesh */}
               <div>
-                <h2 className="text-xl font-semibold">Bangladesh</h2>
+                <h2 className="text-xl font-semibold text-1B1B1B">
+                  Bangladesh
+                </h2>
                 <div className="mt-4 space-y-1 text-black">
                   <span className="flex items-center gap-2">
                     <Mail size={18} /> hello@wavespace.agency
@@ -437,7 +489,7 @@ const page = () => {
             </div>
           </div>
         </section>
-        <section id="contact" className="py-20 bg-white">
+        <section id="contact" className="py-20 bg-[#F0F0F0]">
           <Form />
         </section>
       </div>

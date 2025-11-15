@@ -37,7 +37,7 @@ const image3 = [
   "/images/img6.webp",
 ];
 
-export default function ThreeLayerSwapSlider() {
+export default function ImageSlider() {
   const topRef = useRef(null);
   const midRef = useRef(null);
   const bottomRef = useRef(null);
@@ -54,7 +54,7 @@ export default function ThreeLayerSwapSlider() {
     const scroll = () => {
       if (top && mid && bottom) {
         // Control speed here 👇
-        const topSpeed = 50.0;
+        const topSpeed = 15.0;
         const midSpeed = -20.3; // mid one moves right
         const bottomSpeed = 15.0;
 
@@ -65,8 +65,12 @@ export default function ThreeLayerSwapSlider() {
 
         // Reset when scrolled halfway for infinite loop
         if (top.scrollLeft >= top.scrollWidth / 2) top.scrollLeft = 0;
-        if (mid.scrollLeft >= mid.scrollWidth / 2) mid.scrollLeft = 0;
+        // if (mid.scrollLeft >= mid.scrollWidth / 2) mid.scrollLeft = 0;
         if (bottom.scrollLeft >= bottom.scrollWidth / 2) bottom.scrollLeft = 0;
+
+        if (mid.scrollLeft <= 0) {
+          mid.scrollLeft = mid.scrollWidth / 2; // jump to middle again
+        }
       }
       animation = requestAnimationFrame(scroll);
     };
@@ -103,7 +107,7 @@ export default function ThreeLayerSwapSlider() {
 
   return (
     <section className="relative bg-white py-10 md:py-16 overflow-hidden">
-      <div className="flex flex-col gap-8 md:gap-12 w-full max-w-[1500px] mx-auto px-4">
+      <div className="flex flex-col gap-8 md:gap-4 w-full max-w-[1500px] mx-auto px-4">
         {renderRow(topRef, image1)} {/* Top: left */}
         {renderRow(midRef, image2)} {/* Middle: right */}
         {renderRow(bottomRef, image3)} {/* Bottom: left */}

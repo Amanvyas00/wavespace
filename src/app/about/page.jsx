@@ -5,6 +5,8 @@ import Slider2 from "@/component/Slider2";
 import ProcessSteps from "@/component/ProcessSteps";
 import { useState, useEffect } from "react";
 import { ArrowUpRight, Flame, Check } from "lucide-react";
+import ImageSlider from "@/component/ImageSlider";
+import PersonSlider from "@/component/PersonSlider";
 
 const wordsArray = [
   "SaaS companies.",
@@ -35,6 +37,12 @@ const states = [
     sub: "250+ testimonial with trusted by YC-backed, VC-funded, a16z, Sequoia",
   },
 ];
+const features = [
+    "See how we plan, design and build",
+    "Get a full view of our UX process, made for you",
+    "Track how we work, communicate and stay on schedule",
+    "Know if we're the right fit before you commit",
+  ];
 
 export default function Page() {
   const [index, setIndex] = useState(0);
@@ -543,141 +551,51 @@ export default function Page() {
         </div>
       </section>
       {/* from bangladesh to usa */}
-      <section className="relative w-full overflow-hidden bg-white py-16">
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src="/images/backgroundImage.webp"
-            alt="Background"
-            fill
-            className="object-cover"
-          />
-        </div>
-
-        {/* Scrolling image marquee */}
-        <div className="flex whitespace-nowrap animate-marquee">
-          {Array.from({ length: 13 }).map((_, i) => (
-            <div
-              key={i}
-              className="team_marquee-card flex flex-col justify-start items-start mr-4 flex-none"
-            >
-              <div className="relative w-[18.1875rem] h-[22.3125rem] overflow-hidden rounded-xl">
-                <Image
-                  src={`/images/about_slider/img${i + 1}.webp`}
-                  alt={`Team image ${i + 1}`}
-                  width={291}
-                  height={357}
-                  className="team_image object-cover w-full h-full"
-                />
-              </div>
-              <p className="text-[#7e7e81] text-[0.75rem] font-medium leading-[1.45] mt-2">
-                {
-                  [
-                    "UI working time product look 2024",
-                    "Product designer working time 2024",
-                    "Knowledge share in workshop 2024",
-                    "Team celebrating moment 2024",
-                    "Sharing ideas for new design 2024",
-                    "Team meeting time 2024",
-                    "Mood board setup 2024",
-                    "Sketch to wireframe 2024",
-                    "Team brainstorming 2024",
-                    "Design sprint kickoff 2024",
-                    "Presentation day 2024",
-                    "Design feedback session 2024",
-                    "Collaboration time 2024",
-                  ][i]
-                }
-              </p>
-            </div>
-          ))}
-
-          {/* Duplicate for seamless loop */}
-          {Array.from({ length: 13 }).map((_, i) => (
-            <div
-              key={`dup-${i}`}
-              className="team_marquee-card flex flex-col justify-start items-start mr-4 flex-none"
-            >
-              <div className="relative w-[18.1875rem] h-[22.3125rem] overflow-hidden rounded-xl">
-                <Image
-                  src={`/images/about_slider/img${i + 1}.webp`}
-                  alt={`Team image duplicate ${i + 1}`}
-                  width={291}
-                  height={357}
-                  className="team_image object-cover w-full h-full"
-                />
-              </div>
-              <p className="text-[#7e7e81] text-[0.75rem] font-medium leading-[1.45] mt-2">
-                {
-                  [
-                    "UI working time product look 2024",
-                    "Product designer working time 2024",
-                    "Knowledge share in workshop 2024",
-                    "Team celebrating moment 2024",
-                    "Sharing ideas for new design 2024",
-                    "Team meeting time 2024",
-                    "Mood board setup 2024",
-                    "Sketch to wireframe 2024",
-                    "Team brainstorming 2024",
-                    "Design sprint kickoff 2024",
-                    "Presentation day 2024",
-                    "Design feedback session 2024",
-                    "Collaboration time 2024",
-                  ][i]
-                }
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <PersonSlider/>
       {/* process behind our */}
       <section>
         <ProcessSteps />
       </section>
       {/* try our ui/ux */}
-      <section className="bg-[#040849] text-white py-20 px-6 md:px-20 rounded-[2rem] max-w-6xl mx-auto mt-10 relative overflow-hidden">
-        {/* Tag */}
-        <div className="flex items-center bg-[#0a0f6b] border border-[#1d237a] px-4 py-1 rounded-full w-fit mb-8">
-          <Flame className="text-yellow-400 w-4 h-4 mr-2" />
-          <span className="text-sm font-medium">Only 4 seats per month</span>
-        </div>
-
-        {/* Heading */}
-        <h2 className="text-4xl md:text-6xl font-semibold leading-tight mb-8">
-          Try our <span className="font-bold">UI/UX design service</span> that
-          is built
-          <br /> for you — just <span className="text-blue-300">$500</span> for
-          one week.
-        </h2>
-
-        {/* Subheading */}
-        <p className="text-lg text-gray-300 mb-4">…and get the answers on:</p>
-
-        {/* Features Grid */}
-        <div className="grid sm:grid-cols-2 gap-4 mb-10">
-          {[
-            "See how we plan, design and build",
-            "Get a full view of our UX process, made for you",
-            "Track how we work, communicate and stay on schedule",
-            "Know if we're the right fit before you commit",
-          ].map((text, idx) => (
-            <div
-              key={idx}
-              className="flex items-center bg-[#0b1073] border border-[#1d237a] rounded-full px-4 py-3 text-sm md:text-base"
-            >
-              <Check className="text-green-400 w-4 h-4 mr-2" />
-              {text}
+      <section className="w-full py-20">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="bg-[#02004A] text-white rounded-3xl p-8 md:p-12 relative overflow-hidden">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white px-3 py-1.5 rounded-full border border-white/20 text-xs mb-6">
+              <span className="text-yellow-400 text-base">🔥</span>
+              Only 4 seats per month
             </div>
-          ))}
+
+            <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-2">
+              Test our product & UI UX design expertise.
+            </h2>
+
+            <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-6">
+              Start a one-week trial for{" "}
+              <span className="text-yellow-300">$500</span>
+            </h2>
+
+            <p className="text-base text-white/80 mb-4">
+              …and get the answers on:
+            </p>
+
+            {/* Pills */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              {features.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full text-sm"
+                >
+                  <span className="text-green-300">✔</span>
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <button className="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-8 py-3 rounded-full text-base transition">
+              Start the trial week ↗
+            </button>
+          </div>
         </div>
-
-        {/* Button */}
-        <button className="bg-[#e5f15f] text-black font-medium rounded-full px-6 py-3 flex items-center space-x-2 hover:scale-105 transition-transform duration-200">
-          <span>Book an intro call</span>
-          <ArrowUpRight className="w-5 h-5" />
-        </button>
-
-        {/* Background overlay mock (optional design layer) */}
-        <div className="absolute right-0 bottom-0 w-[500px] h-[300px] bg-[url('/images/mockup-bg.svg')] bg-contain bg-no-repeat opacity-10 pointer-events-none"></div>
       </section>
       <section className="w-full bg-[#f5f5f5] py-24 px-6 md:px-16 lg:px-28">
         <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-black mx-auto">

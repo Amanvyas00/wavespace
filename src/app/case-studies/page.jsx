@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import Form from "@/component/Form";
+import CreativeServicesSection from "@/component/CreativeServicesSection";
 
 const Home = () => {
   const data = [
@@ -30,6 +31,11 @@ const Home = () => {
     {
       img: "/images/poster5.webp",
       title: "Off-White - Modern fashion web design",
+      des: "App Design, SaaS Design, UI/UX Design",
+    },
+    {
+      img: "/images/poster6.webp",
+      title: "name - Sport Management Web App",
       des: "App Design, SaaS Design, UI/UX Design",
     },
     {
@@ -178,39 +184,7 @@ const Home = () => {
         </h1>
         <Slider1 />
       </section>
-      <section className="bg-[#e9e9e9] py-20">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight text-black py-10">
-            One subscription. all the <br />
-            <span className="font-medium text-gray-500">
-              creative services you need
-            </span>
-          </h2>
-
-          <div className="bg-white shadow-sm rounded-lg">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 ">
-              {items.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between items-center border-b p-5 hover:bg-gray-50 cursor-pointer transition "
-                >
-                  <span className="flex items-center gap-5 text-[20px] font-bold text-black">
-                    <span className="text-gray-400 font-semibold w-8">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-
-                    <span className="relative hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-[-3px] after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300 after:ease-in-out hover:after:w-full">
-                      {item}
-                    </span>
-                  </span>
-
-                  <ArrowUpRight className="w-5 h-5 text-gray-500" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+     <CreativeServicesSection/>
       <Form/>
     </div>
   );

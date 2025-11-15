@@ -1,43 +1,44 @@
 "use client";
 import Image from "next/image";
 
-const testimonials = [
-  {
-    img: "/images/man1.webp",
-    brand: "LifeTales",
-    name: "Matt Kabus",
-    role: "CEO & Founder @LifeTales",
-    review:
-      "Wavespace is a fantastic design team, with a healthy blend of UI and UX skills. Highly recommended",
-  },
-  {
-    img: "/images/man2.webp",
-    brand: "Kodezi",
-    name: "Ishraq Khan",
-    role: "CEO @Kodezi",
-    review:
-      "Wavespace very reliable at all times and we have enjoyed working & designs are truly impressive. An absolute pleasure to work with and I'm super satisfied with the results. Highly recommended!",
-  },
-  {
-    img: "/images/man3.webp",
-    brand: "tournated",
-    name: "Nikita Ribakovs",
-    role: "Founder & CEO @Tournated",
-    review:
-      "Highly happy with a design delivered by Wavespace. Definitely will keep working with Wavespace. Great quality and smooth communication",
-  },
-];
+// const testimonials = [
+//   {
+//     img: "/images/man1.webp",
+//     brand: "LifeTales",
+//     name: "Matt Kabus",
+//     role: "CEO & Founder @LifeTales",
+//     review:
+//       "Wavespace is a fantastic design team, with a healthy blend of UI and UX skills. Highly recommended",
+//   },
+//   {
+//     img: "/images/man2.webp",
+//     brand: "Kodezi",
+//     name: "Ishraq Khan",
+//     role: "CEO @Kodezi",
+//     review:
+//       "Wavespace very reliable at all times and we have enjoyed working & designs are truly impressive. An absolute pleasure to work with and I'm super satisfied with the results. Highly recommended!",
+//   },
+//   {
+//     img: "/images/man3.webp",
+//     brand: "tournated",
+//     name: "Nikita Ribakovs",
+//     role: "Founder & CEO @Tournated",
+//     review:
+//       "Highly happy with a design delivered by Wavespace. Definitely will keep working with Wavespace. Great quality and smooth communication",
+//   },
+// ];
 
 export default function Founders() {
   return (
-    <section className="px-6 md:px-20 py-20">
-      <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-20 px-12">
-        500+ Founders trusted us. Get return
-        <br />
-        on your <span className="text-gray-400">investment, multiplied!</span>
-      </h2>
+    <>
+      <section className="px-6 md:px-10 py-20">
+        <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-20 px-12">
+          500+ Founders trusted us. Get return
+          <br />
+          on your <span className="text-gray-400">investment, multiplied!</span>
+        </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-7xl mx-auto">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-12">
         {testimonials.map((t, i) => (
           <div key={i} className="space-y-5 text-left">
             <div className="relative">
@@ -60,7 +61,74 @@ export default function Founders() {
             </div>
           </div>
         ))}
-      </div>
-    </section>
+      </div> */}
+
+        <div className="w-full flex flex-col items-center justify-center mt-10">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-26">
+            {/* CARD 1 */}
+            <div className="flex flex-col max-w-sm">
+              <div className="relative w-[400px] h-[400px]">
+                <Image
+                  src="/images/man1.webp"
+                  alt="Profile"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <h1 className="mt-4 text-lg font-medium text-left py-4">
+                Matt Kabus <br /> CEO of Lifetales
+              </h1>
+              
+              <p className="text-black text-md mb-4">
+                “Wavespace is a fantastic design team, with a healthy blend of
+                UI and UX skills. Highly recommended.”
+              </p>
+            </div>
+
+            {/* CARD 2 — shifted down without padding */}
+            <div className="flex flex-col max-w-sm transform md:translate-y-12">
+              <div className="relative w-[400px] h-[500px]">
+                <Image
+                  src="/images/man2.webp"
+                  alt="Profile"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+<h1 className="mt-4 text-lg font-medium text-left py-4">
+                Matt Kabus <br /> CEO of Lifetales
+              </h1>
+              
+              <p className="text-black text-md mb-4">
+                “Wavespace is a fantastic design team, with a healthy blend of
+                UI and UX skills. Highly recommended.”
+              </p>
+            </div>
+
+            {/* CARD 3 */}
+            <div className="flex flex-col max-w-sm">
+              <div className="relative w-[400px] h-[400px]">
+                <Image
+                  src="/images/man3.webp"
+                  alt="Profile"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+
+              <h1 className="mt-4 text-lg font-medium text-left py-4">
+                Matt Kabus <br /> CEO of Lifetales
+              </h1>
+              
+              <p className="text-black text-md mb-4">
+                “Wavespace is a fantastic design team, with a healthy blend of
+                UI and UX skills. Highly recommended.”
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
