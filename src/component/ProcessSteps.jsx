@@ -56,22 +56,22 @@ export default function ProcessSteps() {
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
+const x = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
 
   return (
-    <section ref={ref} className="bg-[#f0f0f0] py-32 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-16">
+    <section ref={ref} className="bg-[#f0f0f0] pt-24 overflow-hidden pl-10">
+      <div className="container mx-auto">
         {/* Heading */}
-        <div className="mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold leading-snug">
-            The process behind our{" "}
-            <span className="text-gray-500">design of your product</span>
+        <div className="mb-20 pl-10">
+          <h2 className="text-4xl md:text-6xl font-bold leading-snug ">
+            The process behind our{" "} <br />
+            <span className="text-[#29242469]">design of your product</span>
           </h2>
         </div>
 
         {/* Sticky Horizontal Scroll */}
-        <div className="relative h-[150vh]">
-          <div className="sticky top-10 h-screen flex items-center overflow-hidden">
+        <div className="relative h-[100vh]">
+          <div className="sticky top-10 flex items-center overflow-hidden ">
             <motion.div
               style={{ x }}
               className="flex gap-6 md:gap-10 will-change-transform"

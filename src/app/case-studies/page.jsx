@@ -5,7 +5,7 @@ import React from "react";
 import { ArrowUpRight } from "lucide-react";
 import Form from "@/component/Form";
 import CreativeServicesSection from "@/component/CreativeServicesSection";
-
+import Review from "@/component/Review";
 const Home = () => {
   const data = [
     {
@@ -85,14 +85,14 @@ const Home = () => {
     "Conversation rate optimization (CRO)",
   ];
   return (
-    <div className="bg-white text-black">
+    <div className="bg-white text-black mt-25">
       <section className="px-10 py-12">
-        <h1 className="text-6xl font-black leading-none px-14">
+        <h1 className="text-6xl font-bold leading-[1.3em] px-14">
           Where creativity meets <br />
-          <span className="text-gray-500 font-normal">success in our work</span>
+          <span className="text-[#29242469] ">success in our work</span>
         </h1>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-8 px-14">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-[5em] px-14">
           {data.map((read, index) => (
             <div key={index} className="flex flex-col group cursor-pointer">
               <div className="overflow-hidden ">
@@ -175,17 +175,11 @@ const Home = () => {
           </h1>
         </div>
       </section>
-      <section className="bg-gray-100 px-14">
-        <h1 className="text-black text-5xl font-black leading-tight py-10">
-          Find your best design into us.
-          <span className="text-[#555555]">
-            We <br /> guarantee next success is yours!
-          </span>
-        </h1>
-        <Slider1 />
+      <section>
+        <Review />
       </section>
-     <CreativeServicesSection/>
-      <Form/>
+      <CreativeServicesSection />
+      <Form />
     </div>
   );
 };

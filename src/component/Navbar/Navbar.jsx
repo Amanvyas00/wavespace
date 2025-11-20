@@ -19,17 +19,35 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScroll, setLastScroll] = useState(0);
-   const pathname = usePathname();
+  const pathname = usePathname();
+
+  // Define custom navbar backgrounds for routes
+  const navbarBg =
+    pathname === "/service"
+      ? "bg-[#000054]" // blue
+      : pathname === "/pricing"
+      ? "bg-black" // black
+      : "bg-white"; // default
+
+  // Change text color based on background
+  const textColor =
+    pathname === "/service" || pathname === "/pricing"
+      ? "text-white"
+      : "text-black";
+
+  // underline color based on background
+  const underlineColor =
+    pathname === "/service" || pathname === "/pricing"
+      ? "after:bg-white"
+      : "after:bg-gray-800";
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
 
       if (currentScroll > lastScroll) {
-        // scrolling down → hide navbar
         setShowNavbar(false);
       } else {
-        // scrolling up → show navbar
         setShowNavbar(true);
       }
 
@@ -43,23 +61,24 @@ export default function Navbar() {
   return (
     <nav
       className={`
-    w-full bg-white fixed top-0 left-0 z-50 transition-transform duration-300
-    ${showNavbar ? "translate-y-0" : "-translate-y-full"}
-  `}
+        w-full fixed top-0 left-0 z-50 transition-transform duration-300 
+        ${showNavbar ? "translate-y-0" : "-translate-y-full"}
+        ${navbarBg} ${textColor}
+      `}
     >
       <div className="container mx-auto flex justify-between items-center px-20 py-4">
         {/* Logo */}
         <Link
           href="/"
-          className="text-2xl font-semibold tracking-tight text-gray-900"
+          className={`text-2xl font-semibold tracking-tight ${textColor}`}
         >
           <span className="font-bold">wave</span>space
         </Link>
 
-        {/* Menu */}
+        {/* Menu Wrapper */}
         <Link
           href="/service"
-          className="hidden md:flex space-x-8 text-black text-lg relative font-medium"
+          className={`hidden md:flex space-x-8 text-lg relative font-medium ${textColor}`}
         >
           {/* Services Menu */}
           <div
@@ -67,9 +86,17 @@ export default function Navbar() {
             onMouseEnter={() => setOpen(true)}
             onMouseLeave={() => setOpen(false)}
           >
-            <button className="relative flex items-center gap-2 hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full">
+            <button
+              className={`
+                cursor-pointer relative flex items-center gap-2 
+                ${textColor}
+                after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] 
+                ${underlineColor}
+                after:transition-all after:duration-300 hover:after:w-full
+              `}
+            >
               <span>Services</span>
-              <MdOutlineArrowOutward className="text-[16px] " />
+              <MdOutlineArrowOutward className="text-[16px]" />
             </button>
 
             {/* Mega Menu */}
@@ -80,7 +107,6 @@ export default function Navbar() {
                   : "opacity-0 invisible -translate-y-2"
               }`}
             >
-              {/* Left two columns */}
               <div className="grid grid-cols-2 gap-x-12 gap-y-4 flex-1">
                 {[
                   { name: "UI UX Design", icon: Layout },
@@ -109,7 +135,7 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Right gradient card */}
+              {/* Right card */}
               <div className="w-[250px] bg-gradient-to-br from-indigo-500 to-indigo-300 rounded-2xl p-6 text-white flex flex-col justify-between shadow-lg">
                 <div>
                   <div className="bg-white/20 w-10 h-10 flex items-center justify-center rounded-full mb-4">
@@ -136,42 +162,37 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Other Links */}
-          {/* Menu Items */}
-          <Link
-            href="/case-studies "
-            className="relative hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Case studies
-            <sup className="text-[10px] text-gray-500 ml-0.5">09</sup>
-          </Link>
-
-          <Link
-            href="/pricing"
-            className="relative hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Pricing
-          </Link>
-
-          <Link
-            href="/about"
-            className="relative hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            About us
-          </Link>
-
-          <Link
-            href="/blog"
-            className="relative hover:text-gray-900 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-800 after:transition-all after:duration-300 hover:after:w-full"
-          >
-            Blog
-          </Link>
+          {/* Other Menu Items */}
+          {[
+            { href: "/case-studies", label: "Case studies", count: "09" },
+            { href: "/pricing", label: "Pricing" },
+            { href: "/about", label: "About us" },
+            { href: "/blog", label: "Blog" },
+          ].map((item, i) => (
+            <Link
+              key={i}
+              href={item.href}
+              className={`
+                relative ${textColor}
+                after:content-[''] after:absolute after:left-0 after:bottom-0 
+                after:w-0 after:h-[2px] ${underlineColor}
+                after:transition-all after:duration-300 hover:after:w-full
+              `}
+            >
+              {item.label}
+              {item.count && (
+                <sup className="text-[10px] ml-0.5 opacity-70">
+                  {item.count}
+                </sup>
+              )}
+            </Link>
+          ))}
         </Link>
 
         {/* Contact Button */}
         <Link
           href="#"
-          className="bg-[#3F2FEE] text-white text-[15px] font-bold rounded-full px-7 py-4 hover:bg-indigo-700 transition-all flex flex-row justify-center items-center gap-2 "
+          className="bg-[#3F2FEE] text-white text-[15px] font-bold rounded-full px-7 py-4 hover:bg-indigo-700 transition-all flex items-center gap-2"
         >
           <span>Contact Us</span>
           <MdOutlineArrowOutward className="text-[20px]" />

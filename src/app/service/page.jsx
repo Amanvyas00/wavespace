@@ -5,6 +5,8 @@ import Image from "next/image";
 import { GoArrowUpRight } from "react-icons/go";
 import { ArrowUpRight, Flame, Check } from "lucide-react";
 import Achievements from "@/component/Achievements";
+import { MdOutlineArrowOutward } from "react-icons/md";
+import Review from "@/component/Review";
 
 export default function page() {
   const services = [
@@ -204,7 +206,7 @@ export default function page() {
         </div>
         {/* Second */}
         <div className="max-w-8xl  grid grid-cols-1 md:grid-cols-2 gap-22 px-14 pb-20 pt-10">
-          {/* LEFT SIDE CONTENT */}
+          {/* LEFT SIDE CONTENT */}   
           <div className="flex flex-col justify-center">
             <h1 className="text-5xl font-bold mb-6">UI/UX Design</h1>
 
@@ -379,12 +381,251 @@ export default function page() {
           </div>
         </div>
       </section>
-    v
-      {/* our award */}
-      <section>
-        <Achievements />
-      </section>
+      {/* Industry expertise */}
+      <section className="ind_sec py-[9.75rem] pb-[4.5rem]">
+        <div className="container is_ind mx-auto max-w-[1440px] px-10">
+          {/* Top Section */}
+          <div className="section_top-wrap grid grid-cols-[0.75fr_0.25fr] gap-4 items-end max-md:flex max-md:flex-col">
+            {/* Heading */}
+            <div className="heading_content-wrap">
+              <div className="section_heaing-wrap flex justify-between items-end max-md:flex-col">
+                <h2 className="section-title text-[3.5rem] leading-[1.35] font-bold mb-0 max-md:text-[1.875rem]">
+                  Industry expertise{" "}
+                  <span className="text-hightlight text-[#29242469]">
+                    across <br /> globally
+                  </span>
+                </h2>
+              </div>
+            </div>
 
+            {/* Button */}
+            <button className="group bg-[#3F2FEE] text-white text-[15px] font-bold rounded-full px-4 py-4 hover:bg-black transition-all flex flex-row justify-center items-center gap-2 cursor-pointer">
+              <span>Consult an expert</span>
+
+              <span className="arrow-box relative w-[28px] h-[20px] inline-flex items-center justify-center overflow-hidden">
+                <MdOutlineArrowOutward className="arrow-slide" />
+                <MdOutlineArrowOutward className="arrow-slide" />
+              </span>
+            </button>
+          </div>
+
+          {/* Grid */}
+          <div className="flex flex-wrap justify-between mt-[4.5rem] max-md:flex-col max-md:gap-y-5">
+            <div className="relative group w-[32%] min-h-[29.5rem] overflow-hidden flex flex-col justify-end mb-[3.125rem] max-md:w-full max-md:min-h-[25rem]">
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/fintech.webp"
+                  alt="Finance & Fintech"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              {/* Gradient */}
+              <div className="absolute bottom-0 w-full h-[11rem] bg-gradient-to-t from-black/100 via-transparent to-transparent z-[1]" />
+
+              {/* TEXT BLOCK */}
+              <div
+                className="absolute bottom-0 px-8 py-8 text-white z-[2]
+    translate-y-[50%] group-hover:translate-y-0
+    transition-all duration-500 ease-out bg-gradient-to-t from-black/80 via-black/40   to-black-0
+"
+              >
+                {/* Title (always visible, just moves slightly) */}
+                <h4 className="text-[1.625rem] font-semibold max-md:text-[1.25rem]">
+                  Finance & Fintech
+                </h4>
+
+                {/* Description (hidden until hover) */}
+                <p
+                  className="mt-2 text-[1rem] leading-[1.6] max-md:text-[.875rem]
+      opacity-0 group-hover:opacity-90
+      translate-y-5 group-hover:translate-y-0
+      transition-all  duration-500 ease-out "
+                >
+                  We create digital products that are both secure and easy to
+                  trust, with tidy dashboards and simple steps.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group w-[32%] min-h-[29.5rem] overflow-hidden flex flex-col justify-end mb-[3.125rem] max-md:w-full max-md:min-h-[25rem]">
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/ecommerce.webp"
+                  alt="E-Commerce & DTC"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              {/* Bottom Gradient Overlay */}
+              <div className="absolute bottom-0 w-full h-[11rem] bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0 z-[1]" />
+
+              {/* Text Block */}
+              <div
+                className="absolute bottom-0 px-8 py-8 text-white z-[2]
+      translate-y-[50%] group-hover:translate-y-0
+      transition-all duration-500 ease-out
+      bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0"
+              >
+                <h4 className="text-[1.625rem] font-semibold max-md:text-[1.25rem]">
+                  E-Commerce & DTC
+                </h4>
+
+                <p
+                  className="mt-2 text-[1rem] leading-[1.6] max-md:text-[.875rem]
+        opacity-0 group-hover:opacity-90
+        translate-y-5 group-hover:translate-y-0
+        transition-all duration-500 ease-out"
+                >
+                  Our approach of making things simpler and more effective helps
+                  users go from browsing to checkout in a few simple steps.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group w-[32%] min-h-[29.5rem] overflow-hidden flex flex-col justify-end mb-[3.125rem] max-md:w-full max-md:min-h-[25rem]">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/saas.webp"
+                  alt="SaaS & B2B Platforms"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              <div className="absolute bottom-0 w-full h-[11rem] bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0 z-[1]" />
+
+              <div
+                className="absolute bottom-0 px-8 py-8 text-white z-[2]
+      translate-y-[50%] group-hover:translate-y-0
+      transition-all duration-500 ease-out
+      bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0"
+              >
+                <h4 className="text-[1.625rem] font-semibold max-md:text-[1.25rem]">
+                  SaaS & B2B Platforms
+                </h4>
+
+                <p
+                  className="mt-2 text-[1rem] leading-[1.6] max-md:text-[.875rem]
+        opacity-0 group-hover:opacity-90
+        translate-y-5 group-hover:translate-y-0
+        transition-all duration-500 ease-out"
+                >
+                  We build smooth interfaces that make it easy for teams to work
+                  and manage tasks quickly.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group w-[32%] min-h-[29.5rem] overflow-hidden flex flex-col justify-end mb-[3.125rem] max-md:w-full max-md:min-h-[25rem]">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/web3.webp"
+                  alt="Web3, AI & Emerging Tech"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              <div className="absolute bottom-0 w-full h-[11rem] bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0 z-[1]" />
+
+              <div
+                className="absolute bottom-0 px-8 py-8 text-white z-[2]
+      translate-y-[50%] group-hover:translate-y-0
+      transition-all duration-500 ease-out
+      bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0"
+              >
+                <h4 className="text-[1.625rem] font-semibold max-md:text-[1.25rem]">
+                  Web3, AI & Emerging Tech
+                </h4>
+
+                <p
+                  className="mt-2 text-[1rem] leading-[1.6] max-md:text-[.875rem]
+        opacity-0 group-hover:opacity-90
+        translate-y-5 group-hover:translate-y-0
+        transition-all duration-500 ease-out"
+                >
+                  Complex tech doesn't have to feel complex. We simplify the
+                  experience so users adopt confidently.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group w-[32%] min-h-[29.5rem] overflow-hidden flex flex-col justify-end mb-[3.125rem] max-md:w-full max-md:min-h-[25rem]">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/edtech.webp"
+                  alt="EdTech & HealthTech"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              <div className="absolute bottom-0 w-full h-[11rem] bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0 z-[1]" />
+
+              <div
+                className="absolute bottom-0 px-8 py-8 text-white z-[2]
+      translate-y-[50%] group-hover:translate-y-0
+      transition-all duration-500 ease-out
+      bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0"
+              >
+                <h4 className="text-[1.625rem] font-semibold max-md:text-[1.25rem]">
+                  EdTech & HealthTech
+                </h4>
+
+                <p
+                  className="mt-2 text-[1rem] leading-[1.6] max-md:text-[.875rem]
+        opacity-0 group-hover:opacity-90
+        translate-y-5 group-hover:translate-y-0
+        transition-all duration-500 ease-out"
+                >
+                  Our platforms let patients, students, and admins use them
+                  anytime from any device.
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group w-[32%] min-h-[22.5rem] overflow-hidden flex flex-col justify-end mb-[3.125rem] max-md:w-full max-md:min-h-[20rem]">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/hospitality.webp"
+                  alt="Hospitality & Legal Services"
+                  fill
+                  className="object-cover w-full h-full"
+                />
+              </div>
+
+              <div className="absolute bottom-0 w-full h-[11rem] bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0 z-[1]" />
+
+              <div
+                className="absolute bottom-0 px-8 py-8 text-white z-[2]
+      translate-y-[50%] group-hover:translate-y-0
+      transition-all duration-500 ease-out
+      bg-gradient-to-t from-black/50 via-black/40 via-black/10 to-black/0"
+              >
+                <h4 className="text-[1.625rem] font-semibold max-md:text-[1.25rem]">
+                  Hospitality & Legal Services
+                </h4>
+
+                <p
+                  className="mt-2 text-[1rem] leading-[1.6] max-md:text-[.875rem]
+        opacity-0 group-hover:opacity-90
+        translate-y-5 group-hover:translate-y-0
+        transition-all duration-500 ease-out"
+                >
+                  Our designs let users focus on their activities, making
+                  services dependable and easy to use.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*   Who we design for and how */}
       <section className="w-full bg-[#f3f3f3] py-24">
         <div className="max-w-8xl  px-6">
           {/* TOP HEADING + BUTTON */}
@@ -398,8 +639,9 @@ export default function page() {
               </h2>
             </div>
 
-            <button className="mt-6 md:mt-0 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-lg transition">
-              Start your project ↗
+            <button className="group bg-[#3F2FEE] text-white text-[15px] font-bold rounded-full px-8 py-4 hover:bg-black transition-all flex flex-row justify-center items-center gap-2 cursor-pointer">
+              <span>Start Your Project</span>
+              <MdOutlineArrowOutward className="text-[20px] arrow-animate" />
             </button>
           </div>
 
@@ -433,6 +675,14 @@ export default function page() {
             ))}
           </div>
         </div>
+      </section>
+      /{/* our award */}
+      <section>
+        <Achievements />
+      </section>
+      {/* review */}
+      <section>
+        <Review/>
       </section>
       <section className="w-full py-20">
         <div className="max-w-8xl  px-6">

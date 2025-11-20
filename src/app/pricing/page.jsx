@@ -184,7 +184,8 @@ export default function page() {
                 <h3 className="text-5xl font-semibold mt-6 mb-3 pt-30">
                   {item.title}
                 </h3>
-                <p className="text-gray-600 text-lg w-50">{item.sub}</p>
+                <p className="text-gray
+                 text-lg w-50">{item.sub}</p>
               </div>
             ))}
           </div>

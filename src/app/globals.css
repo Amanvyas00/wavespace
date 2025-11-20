@@ -170,3 +170,88 @@ body {
   top: 0;
   transform-style: preserve-3d;
 }
+@keyframes arrowFlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(8px, -8px, 0);
+  }
+}
+
+/* small container for 2 arrows */
+.arrow-box {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* both arrows start from the same position */
+.arrow-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  will-change: transform;
+}
+
+/* Animate both arrows on hover */
+.group:hover .arrow-slide {
+  animation: arrowFlow 0.4s linear infinite;
+}
+  
+/* second arrow follows behind first */
+.arrow-slide:nth-child(2) {
+  animation-delay: 0.20s; /* half of 0.4s */
+}
+
+/* --- Testimonial card --- */
+.testimonial_card {
+  @apply bg-white border-r border-[#f0f0f0] flex flex-col p-6
+          h-[21em] md:h-[27.5rem];
+}
+
+.tes_brand-name {
+  @apply text-[#7e7e81] text-[1.01rem] font-semibold;
+}
+
+.tes_para {
+  @apply text-[#7e7e81] mt-10 text-[1.55rem] leading-[1.33] font-bold
+    max-md:mt-5 max-md:mb-4 max-md:text-lg;
+}
+
+.tes_profile-wrap {
+  @apply flex gap-3 items-center mt-auto;
+}
+
+.tes_img-wrap {
+  @apply w-[3.0em] h-[3.0em] rounded-full overflow-hidden;
+}
+
+.tes_profile-details {
+  @apply flex flex-col;
+}
+
+.tes_name {
+  @apply text-[1.1rem] font-bold;
+}
+
+.tes_role {
+  @apply text-[#7e7e81] text-[1.1rem] font-semibold;
+}
+.custom-swiper-pagination .custom-bullet {
+  width: 10px;
+  height: 10px;
+  background: #000;
+  opacity: 0.25;
+  border-radius: 50%;
+  margin: 0 6px;
+}
+
+.custom-swiper-pagination .custom-bullet-active {
+  opacity: 1;
+}
+
+

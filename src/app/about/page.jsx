@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 import { ArrowUpRight, Flame, Check } from "lucide-react";
 import ImageSlider from "@/component/ImageSlider";
 import PersonSlider from "@/component/PersonSlider";
+import Testimonial from "@/component/Testimonial";
+import LogoSlider from "@/component/LogoSlider";
 
 const wordsArray = [
   "SaaS companies.",
@@ -80,48 +82,120 @@ export default function Page() {
       </section>
 
       <section>
-        <h1 className="text-center p-8 text-xl font-bold">
-          Trusted by 500+ global companies
-        </h1>
-        <Slider2 />
+        
+        <LogoSlider/>
       </section>
-      <section className="w-full py-24 bg-gray-100">
-        <div className="px-8">
-          <h2 className="text-4xl md:text-6xl font-bold mb-12 leading-tight">
-            Bold UX design, billion-dollar proof. We
-            <br />
-            measure impact, not just ship pixels.
-          </h2>
-          {/* first div */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-            {states.slice(0, 3).map((item, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl shadow-sm p-10 text-left"
-              >
-                <span className="text-gray-400 text-lg ">{item.id}</span>
-                <h3 className="text-5xl font-semibold mt-6 mb-3 pt-30">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-lg w-50">{item.sub}</p>
-              </div>
-            ))}
+   <Testimonial/>
+
+      <section className="w-full bg-[#f5f5f5] py-24 px-6 md:px-16 lg:px-28">
+        <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-black">
+          From one laptop to 22+ countries, we helps bold visions become{" "}
+          <span className="text-[#29242469]">intuitive brands.</span>
+        </h2>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* LEFT IMAGE */}
+          <div>
+            <Image
+              src="/images/fam.webp" // <-- tum image ka naam / path change kar dena
+              width={1250}
+              height={800}
+              alt="team photo"
+              className=" w-auto h-[680px] object-cover pt-10"
+            />
           </div>
-          {/* second div */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-6">
-            {states.slice(3).map((item, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-xl shadow-sm  p-10 text-left"
-              >
-                <span className="text-gray-400 text-lg pb-70">{item.id}</span>
-                <h3 className="text-5xl font-semibold mt-6 mb-3 pt-30">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600 text-lg w-100">{item.sub}</p>
-              </div>
-            ))}
+
+          {/* RIGHT TEXT CONTENT */}
+          <div className="flex flex-col gap-22">
+            <div>
+              <p className="text-black text-xl leading-relaxed font-normal">
+                Wavespace didn't start in a co-working space or some glossy
+                VC-funded setup. It started in a small bedroom, just one laptop,
+                a noisy fan, and a founder who couldn't stop thinking about why
+                so many good ideas fail.
+              </p>
+              <br />
+
+              <p className="text-black text-xl leading-relaxed font-normal">
+                So we helped early teams fix broken onboarding, redesign
+                confusing UX, and turn messy ideas into real products. One
+                founder at a time.
+              </p>
+              <br />
+
+              <p className="text-black text-xl leading-relaxed font-normal">
+                But now? Wavespace works with 500+ startups, helps teams launch
+                faster MVPs, improve conversion, and build systems that scale.
+                Our design now powers 100M+ users across 22 countries, from
+                early-stage AI tools to Series B SaaS giants.
+              </p>
+              <br />
+              <p className="text-black text-xl leading-relaxed font-normal ">
+                But honestly? We still build like it's day one, fast, honest,
+                human. Behind every screen is someone betting it all on an idea.
+              </p>
+            </div>
+            <div>
+              <button className="bg-[#4A3AFF] hover:bg-[#3a2ed1] transition text-white px-7 py-4 rounded-full font-semibold flex items-center gap-2">
+                Shape your vision ↗
+              </button>
+            </div>
           </div>
+        </div>
+      </section>
+      <section className="w-full bg-white py-24 px-6 md:px-16 lg:px-32">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* LEFT IMAGE */}
+          <div className="flex justify-center lg:justify-start">
+            <Image
+              src="/images/boys.webp" // <-- change image
+              width={500}
+              height={550}
+              alt="team working"
+              className="rounded-xl object-cover shadow"
+            />
+          </div>
+
+          {/* RIGHT SIDE TEXT */}
+          <div>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight">
+              Why Wavespace? We care <br /> like co-founders.
+            </h2>
+
+            <p className="text-gray-500 mt-4 text-[18px] leading-relaxed max-w-md">
+              Not another agency. We are your team that gives a damn. Because we
+              treat your product like it’s ours.
+            </p>
+
+            <div className="mt-10 space-y-6">
+              {items.map((item, index) => (
+                <div
+                  key={item}
+                  className="flex items-center justify-between border-b border-gray-200 pb-4 group cursor-pointer"
+                >
+                  <div className="flex items-center gap-3 text-gray-800 font-medium">
+                    <span className="text-gray-400">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    {item}
+                  </div>
+
+                  <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM SUB SECTION */}
+        <div className="max-w-7xl mx-auto mt-24 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <h3 className="text-4xl md:text-5xl font-extrabold text-black leading-tight">
+            From vision to velocity, we are <br />
+            <span className="text-gray-500">all in one place.</span>
+          </h3>
+
+          <button className="bg-[#4A3AFF] hover:bg-[#362ec5] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 transition shadow-sm">
+            View services <ArrowUpRight className="h-5 w-5" />
+          </button>
         </div>
       </section>
       {/* We don’t just design. We believe, then deliver. */}
@@ -190,18 +264,49 @@ export default function Page() {
         {/* Overlay to make text pop */}
         <div className="absolute inset-0 bg-black/0"></div>
 
-        <div className="container mx-auto flex flex-col justify-center items-center py-[16rem] px-10 md:py-[16rem] md:px-10 sm:py-[6.5625rem] sm:px-5">
-          <div className="text-white font-bold text-[10rem] leading-none sm:text-[5rem] md:text-[8rem]">
+        <div
+          className="container mx-auto flex flex-col justify-center py-40 px-6 
+  sm:py-24 sm:px-5 
+  md:py-40 md:px-10 
+  lg:py-52"
+        >
+          {/* Founder's */}
+          <div
+            className="
+      text-white font-bold leading-none
+      text-5xl     /* mobile */
+      sm:text-6xl  /* small screens */
+      md:text-8xl  /* tablets/laptops */
+      lg:text-9xl  /* desktop */
+      xl:text-[10rem] /* large screens */
+      md:pl-10 text-left
+      text-center sm:text-left
+    "
+          >
             Founder's
           </div>
-          <div className="text-white font-bold text-[10rem] leading-none ml-auto sm:text-[5rem] md:text-[8rem]">
+
+          {/* Led Journey */}
+          <div
+            className="
+      text-white font-bold leading-none
+      text-5xl
+      sm:text-6xl
+      md:text-8xl
+      lg:text-9xl
+      xl:text-[10rem]
+      md:pr-10
+      text-center sm:text-right
+      mt-4 md:mt-0
+    "
+          >
             Led Journey
           </div>
         </div>
       </section>
       {/* back in 2014 */}
       <section className="bg-black text-white overflow-hidden py-[9.75rem] max-md:py-[4rem]">
-        <div className="container mx-auto flex flex-col justify-center items-center px-6 md:px-10">
+        <div className="container mx-auto flex flex-col justify-center items-center px-6 md:px-[2.5rem]">
           {/* --- Top Wrap --- */}
           <div className="flex justify-between items-start gap-[8.875rem] border-b border-[#242424] pb-[7.5rem] max-md:flex-col max-md:gap-[2.5rem] max-md:pb-[3.25rem]">
             {/* Desktop Image */}
@@ -242,7 +347,7 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className="container mx-auto flex justify-between items-start gap-[7.75rem] max-md:flex-col max-md:gap-[2.5rem] max-md:mb-[4rem] mb-[9.75rem] px-6 md:px-10">
+        <div className="container mx-auto flex justify-between items-start gap-[7.75rem] max-md:flex-col max-md:gap-[2.5rem] max-md:mb-[4rem] mb-[9.75rem] pt-[7.5rem] px-6 md:px-10">
           {/* --- Left: Text Grid --- */}
           <div className="grid grid-cols-2 gap-x-[4.5rem] gap-y-[2.5rem] w-full max-md:grid-cols-1 max-md:gap-y-[2rem]">
             <p className="text-[1rem] leading-[1.54] max-md:text-[1.125rem] text-white/90">
@@ -415,10 +520,10 @@ export default function Page() {
           </div>
         </div>
         {/* TEAM GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-6 mt-20 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-14 gap-x-6 mt-20 mb-20 px-12">
           {/* Team Members Inline */}
           <div className="flex flex-col items-start">
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden ">
               <Image
                 src="/images/team1.webp"
                 alt="Shahid Miah"
@@ -434,7 +539,7 @@ export default function Page() {
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden ">
               <Image
                 src="/images/team2.webp"
                 alt="Noor Mohammad"
@@ -450,7 +555,7 @@ export default function Page() {
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden">
               <Image
                 src="/images/team3.webp"
                 alt="Barakatullah"
@@ -468,7 +573,7 @@ export default function Page() {
           </div>
 
           <div className="flex flex-col items-start">
-            <div className="w-full overflow-hidden rounded-lg">
+            <div className="w-full overflow-hidden ">
               <Image
                 src="/images/team4.webp"
                 alt="Rabbi Mia"
@@ -482,12 +587,10 @@ export default function Page() {
             </div>
             <div className="text-[#7e7e81] text-[1.125rem]">UI/UX Designer</div>
           </div>
-
-          {/* ... add remaining members similarly ... */}
         </div>
 
         {/* BELIEFS SECTION */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-10">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-10 px-12">
           {/* LEFT SIDE TITLE */}
           <div className="w-full lg:w-1/2">
             <h2 className="text-[3.5rem] md:text-[2.7rem] sm:text-[2rem] font-bold leading-[1.35]">
@@ -499,7 +602,7 @@ export default function Page() {
           </div>
 
           {/* RIGHT SIDE BELIEFS INLINE */}
-          <div className="flex flex-col gap-14 w-full lg:max-w-[36.375rem]">
+          <div className="flex flex-col gap-14 w-full lg:max-w-[40.375rem]">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="text-[#7e7e81] text-[1.375rem] mt-[2px]">01</div>
               <div className="flex flex-col gap-3">
@@ -551,7 +654,7 @@ export default function Page() {
         </div>
       </section>
       {/* from bangladesh to usa */}
-      <PersonSlider/>
+      <PersonSlider />
       {/* process behind our */}
       <section>
         <ProcessSteps />
@@ -595,112 +698,6 @@ export default function Page() {
               Start the trial week ↗
             </button>
           </div>
-        </div>
-      </section>
-      <section className="w-full bg-[#f5f5f5] py-24 px-6 md:px-16 lg:px-28">
-        <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-black mx-auto">
-          From one laptop to 22+ countries, we helps bold visions become{" "}
-          <span className="text-gray-500">intuitive brands.</span>
-        </h2>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT IMAGE */}
-          <div>
-            <Image
-              src="/images/fam.webp" // <-- tum image ka naam / path change kar dena
-              width={450}
-              height={550}
-              alt="team photo"
-              className="rounded-xl w-auto h-[500px] object-cover pl-20 pt-10"
-            />
-          </div>
-
-          {/* RIGHT TEXT CONTENT */}
-          <div>
-            <p className="text-gray-600 text-lg mt-6 leading-relaxed">
-              Wavespace didn't start in a co-working space or some glossy
-              VC-funded setup. It started in a small bedroom, just one laptop, a
-              noisy fan, and a founder who couldn't stop thinking about why so
-              many good ideas fail.
-            </p>
-
-            <p className="text-gray-600 text-lg mt-4 leading-relaxed">
-              So we helped early teams fix broken onboarding, redesign confusing
-              UX, and turn messy ideas into real products. One founder at a
-              time.
-            </p>
-
-            <p className="text-gray-600 text-lg mt-4 leading-relaxed">
-              But now? Wavespace works with 500+ startups, helps teams launch
-              faster MVPs, improve conversion, and build systems that scale. Our
-              design now powers 100M+ users across 22 countries, from
-              early-stage AI tools to Series B SaaS giants.
-            </p>
-
-            <p className="text-gray-600 text-lg mt-4 leading-relaxed">
-              But honestly? We still build like it's day one, fast, honest,
-              human. Behind every screen is someone betting it all on an idea.
-            </p>
-
-            <button className="mt-7 bg-[#4A3AFF] hover:bg-[#3a2ed1] transition text-white px-7 py-3 rounded-full font-semibold flex items-center gap-2">
-              Shape your vision ↗
-            </button>
-          </div>
-        </div>
-      </section>
-      <section className="w-full bg-white py-24 px-6 md:px-16 lg:px-32">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT IMAGE */}
-          <div className="flex justify-center lg:justify-start">
-            <Image
-              src="/images/boys.webp" // <-- change image
-              width={500}
-              height={550}
-              alt="team working"
-              className="rounded-xl object-cover shadow"
-            />
-          </div>
-
-          {/* RIGHT SIDE TEXT */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-black leading-tight">
-              Why Wavespace? We care <br /> like co-founders.
-            </h2>
-
-            <p className="text-gray-500 mt-4 text-[18px] leading-relaxed max-w-md">
-              Not another agency. We are your team that gives a damn. Because we
-              treat your product like it’s ours.
-            </p>
-
-            <div className="mt-10 space-y-6">
-              {items.map((item, index) => (
-                <div
-                  key={item}
-                  className="flex items-center justify-between border-b border-gray-200 pb-4 group cursor-pointer"
-                >
-                  <div className="flex items-center gap-3 text-gray-800 font-medium">
-                    <span className="text-gray-400">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {item}
-                  </div>
-
-                  <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition" />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* BOTTOM SUB SECTION */}
-        <div className="max-w-7xl mx-auto mt-24 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          <h3 className="text-4xl md:text-5xl font-extrabold text-black leading-tight">
-            From vision to velocity, we are <br />
-            <span className="text-gray-500">all in one place.</span>
-          </h3>
-
-          <button className="bg-[#4A3AFF] hover:bg-[#362ec5] text-white px-8 py-3 rounded-full font-semibold inline-flex items-center gap-2 transition shadow-sm">
-            View services <ArrowUpRight className="h-5 w-5" />
-          </button>
         </div>
       </section>
     </div>

@@ -25,8 +25,8 @@ const logos = [
 
 export default function LogoSlider() {
   return (
-    <section className="py-16 bg-white mx-auto">
-      <div className="container  text-center ">
+    <section className="py-16 bg-white mx-auto px-20">
+      <div className="container text-center mx-auto">
         <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-10">
           Trusted by 500+ global companies
         </h2>
@@ -42,7 +42,7 @@ export default function LogoSlider() {
             delay: 0,
             disableOnInteraction: false,
           }}
-          className="flex items-center"
+          className="flex items-center  "
         >
           {logos.map((logo, index) => (
             <SwiperSlide

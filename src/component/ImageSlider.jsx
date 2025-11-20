@@ -12,20 +12,16 @@ const image1 = [
   "/images/img7.webp",
   "/images/img8.webp",
 ];
-
 const image2 = [
   "/images/img3.webp",
   "/images/img5.webp",
   "/images/img6.webp",
-
   "/images/img8.webp",
   "/images/img1.webp",
   "/images/img2.webp",
   "/images/img7.webp",
-
   "/images/img4.webp",
 ];
-
 const image3 = [
   "/images/img3.webp",
   "/images/img4.webp",
@@ -46,47 +42,41 @@ export default function ImageSlider() {
     const top = topRef.current;
     const mid = midRef.current;
     const bottom = bottomRef.current;
-    let animation;
 
-    // Start middle from halfway
-    if (mid) mid.scrollLeft = mid.scrollWidth / 2;
+    let animationFrame;
 
-    const scroll = () => {
-      if (top && mid && bottom) {
-        // Control speed here 👇
-        const topSpeed = 15.0;
-        const midSpeed = -20.3; // mid one moves right
-        const bottomSpeed = 15.0;
+   const scroll = () => {
+     if (top && mid && bottom) {
+       const topSpeed = 1.2;
+       const midSpeed = -1.5; // <-- moves right
+       const bottomSpeed = 1.2;
 
-        // Move top & bottom left, middle right
-        top.scrollLeft += topSpeed;
-        mid.scrollLeft += midSpeed;
-        bottom.scrollLeft += bottomSpeed;
+       top.scrollLeft += topSpeed;
+       mid.scrollLeft += midSpeed;
+       bottom.scrollLeft += bottomSpeed;
 
-        // Reset when scrolled halfway for infinite loop
-        if (top.scrollLeft >= top.scrollWidth / 2) top.scrollLeft = 0;
-        // if (mid.scrollLeft >= mid.scrollWidth / 2) mid.scrollLeft = 0;
-        if (bottom.scrollLeft >= bottom.scrollWidth / 2) bottom.scrollLeft = 0;
+       const maxHalf = top.scrollWidth / 2;
 
-        if (mid.scrollLeft <= 0) {
-          mid.scrollLeft = mid.scrollWidth / 2; // jump to middle again
-        }
-      }
-      animation = requestAnimationFrame(scroll);
-    };
+       if (top.scrollLeft >= maxHalf) top.scrollLeft = 0;
+       if (bottom.scrollLeft >= maxHalf) bottom.scrollLeft = 0;
 
-    animation = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animation);
+       if (mid.scrollLeft <= 0) {
+         mid.scrollLeft = maxHalf; // jump to mid → smooth infinite loop
+       }
+     }
+
+     animation = requestAnimationFrame(scroll);
+   };
+
+    animationFrame = requestAnimationFrame(scroll);
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
   const renderRow = (ref, images) => (
     <div
       ref={ref}
-      className="flex gap-5 overflow-x-scroll scrollbar-hide"
-      style={{
-        scrollBehavior: "smooth",
-        scrollbarWidth: "none",
-      }}
+      className="flex gap-6 overflow-x-scroll scrollbar-hide px-6"
+      style={{ scrollBehavior: "auto", scrollbarWidth: "none" }}
     >
       {[...images, ...images].map((src, i) => (
         <div
@@ -95,10 +85,10 @@ export default function ImageSlider() {
         >
           <Image
             src={src}
-            alt={`slide-${i}`}
+            alt=""
             width={600}
             height={400}
-            className="object-cover w-full h-full rounded-2xl transition-transform duration-500 hover:scale-[1.05]"
+            className="object-cover w-full h-full rounded-2xl"
           />
         </div>
       ))}
@@ -107,13 +97,12 @@ export default function ImageSlider() {
 
   return (
     <section className="relative bg-white py-10 md:py-16 overflow-hidden">
-      <div className="flex flex-col gap-8 md:gap-4 w-full max-w-[1500px] mx-auto px-4">
-        {renderRow(topRef, image1)} {/* Top: left */}
-        {renderRow(midRef, image2)} {/* Middle: right */}
-        {renderRow(bottomRef, image3)} {/* Bottom: left */}
+      <div className="flex flex-col gap-8 md:gap-4 w-full max-w-[1550px]  ">
+        {renderRow(topRef, image1)}
+        {renderRow(midRef, image2)}
+        {renderRow(bottomRef, image3)}
       </div>
 
-      {/* Gradient fade edges */}
       <div className="absolute top-0 left-0 w-24 h-full bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
       <div className="absolute top-0 right-0 w-24 h-full bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
     </section>
